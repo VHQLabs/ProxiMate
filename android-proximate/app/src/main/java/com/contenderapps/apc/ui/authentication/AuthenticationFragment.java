@@ -113,9 +113,8 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
         } else {
+
         }
-
-
 
 
         qrCodeScanner.startCamera();
@@ -123,6 +122,9 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
         qrCodeScanner.setResultHandler(this);
 //        qrCodeScanner.setResultHandler(this);
     }
+
+
+
 
     @Override
     public void onPause() {
@@ -134,9 +136,6 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  ButterKnife
     ////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
     private void initScanner() {
         List<BarcodeFormat> formats = Collections.EMPTY_LIST;
         formats.add(BarcodeFormat.QR_CODE);
@@ -144,10 +143,6 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
         qrCodeScanner.setAutoFocus(true);
         qrCodeScanner.setLaserColor(R.color.colorAccent);
         qrCodeScanner.setMaskColor(R.color.colorAccent);
-
-        // TODO: 20/10/2018 - ignore the case for huwawei manufacturer
-//        if (Build.MANUFACTURER.equals(HUAWEI, ignoreCase = true))
-//            qrCodeScanner.setAspectTolerance(0.5f)
     }
 
 
