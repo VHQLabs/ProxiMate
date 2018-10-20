@@ -31,6 +31,8 @@
         <activity android:name=".ui.authentication.AuthenticationActivity">
         </activity>
 
+        <activity android:name=".ui.main.MainActivity">
+        </activity>
 
 
 

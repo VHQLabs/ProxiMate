@@ -65,8 +65,6 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
     }
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -118,7 +116,6 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
         } else {
 
         }
-
 
         qrCodeScanner.startCamera();
         // TODO: 20/10/2018 set the hander for resulsts

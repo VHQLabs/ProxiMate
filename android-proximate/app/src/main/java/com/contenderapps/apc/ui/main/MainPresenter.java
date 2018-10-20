@@ -1,4 +1,4 @@
-package com.contenderapps.apc.ui.transactions;
+package com.contenderapps.apc.ui.main;
 
 
 import com.contenderapps.apc.data.repository.AppRepository;
@@ -7,13 +7,13 @@ import com.contenderapps.apc.ui.base.presenters.BasePresenter;
 import javax.inject.Inject;
 
 
-public class TransactionsPresenter extends BasePresenter<TransactionsMvpView> {
+public class MainPresenter extends BasePresenter<MainMvpView> {
 
-    private static final String TAG = TransactionsPresenter.class.getSimpleName();
+    private static final String TAG = MainPresenter.class.getSimpleName();
 
     private boolean mIsFirstLoad;
 
-    private TransactionsMvpView tmpView;
+    private MainMvpView tmpView;
 
     private boolean mIsActivated;
 
@@ -21,7 +21,7 @@ public class TransactionsPresenter extends BasePresenter<TransactionsMvpView> {
     @Inject
     AppRepository mAppRepository;
 
-    public TransactionsPresenter() {
+    public MainPresenter() {
         getPresenterComponent().inject(this);
         mIsFirstLoad = true;
     }

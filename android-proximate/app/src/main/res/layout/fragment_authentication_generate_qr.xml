@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/colorPrimary"
     >
 
 
@@ -11,20 +12,27 @@
         android:id="@+id/qr_image"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_marginTop="56dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black"
         />
 
 
     <TextView
         android:id="@+id/finish_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Finish"
         android:background="@color/green"
         android:padding="8dp"
+        android:layout_below="@+id/qr_image"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
         />
 
 
 
 
 
-</LinearLayout>
+</RelativeLayout>

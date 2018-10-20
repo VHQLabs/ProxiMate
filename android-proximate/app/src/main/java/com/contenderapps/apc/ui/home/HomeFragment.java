@@ -27,11 +27,6 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
     private boolean mIsActivated;
 
 
-//    @BindView(R.id.transactions_btn)
-//    Button mTransactions;
-//
-//    @BindView(R.id.activate_btn)
-//    Button mActivate;
 
 
 
@@ -73,7 +68,7 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_start, container, false);
         mUnbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -121,16 +116,13 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
 
     @OnClick(R.id.transactions_btn)
     public void onTransactionsClick() {
-
+        Navigator.navigateToTransactions(mContext);
     }
 
-
-//    @OnClick(R.id.activate_btn)
-//    public void onActivateClick() {
-//        //
-//        Navigator.navigateToActivation(mContext, mIsActivated);
-////        this.getActivity().finish();
-//    }
+    @OnClick(R.id.activate_btn)
+    public void onActivateClick() {
+        Navigator.navigateToActivation(mContext, mIsActivated);
+    }
 
 
 

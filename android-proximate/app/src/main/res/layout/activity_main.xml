@@ -1,4 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/activity_container"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<FrameLayout
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/home_footer"
+    />
+
+
+    <LinearLayout
+        android:id="@+id/home_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dimen_margin_normal"
+        android:paddingTop="@dimen/dimen_margin_normal"
+        android:weightSum="4"
+        >
+
+        <RelativeLayout
+            android:id="@+id/requests_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_light"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dimen_ic_size"
+                android:layout_height="@dimen/dimen_ic_size"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_request"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/map_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dimen_ic_size"
+                android:layout_height="@dimen/dimen_ic_size"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_neighbourhood"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/chat_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dimen_ic_size"
+                android:layout_height="@dimen/dimen_ic_size"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_chat"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/user_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dimen_ic_size"
+                android:layout_height="@dimen/dimen_ic_size"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_account"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

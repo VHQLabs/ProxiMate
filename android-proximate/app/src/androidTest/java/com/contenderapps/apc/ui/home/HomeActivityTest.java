@@ -27,7 +27,7 @@ public class HomeActivityTest {
 //    public static final LocaleTestRule localeTestRule = new LocaleTestRule();
 //
 //    @Rule
-//    public ActivityTestRule<TransactionsActivity> mActivityTestRule = new ActivityTestRule<>(TransactionsActivity.class);
+//    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 //
 //    @Test
 //    public void isHomeVisible() {

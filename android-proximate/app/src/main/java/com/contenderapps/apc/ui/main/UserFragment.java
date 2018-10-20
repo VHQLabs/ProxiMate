@@ -1,4 +1,4 @@
-package com.contenderapps.apc.ui.transactions;
+package com.contenderapps.apc.ui.main;
 
 
 import android.os.Bundle;
@@ -14,14 +14,15 @@ import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 import butterknife.ButterKnife;
 
 
-public class TransactionsFragment extends BaseMvpFragment<TransactionsMvpView, TransactionsPresenter> implements TransactionsMvpView {
+public class UserFragment extends BaseMvpFragment<MainMvpView, MainPresenter> implements MainMvpView {
 
-    private static final String TAG = TransactionsFragment.class.getSimpleName();
+    private static final String TAG = UserFragment.class.getSimpleName();
+
+    private MainMenuInterface mMainInterface;
 
 
-
-    public static TransactionsFragment newInstance() {
-        TransactionsFragment fragment = new TransactionsFragment();
+    public static UserFragment newInstance() {
+        UserFragment fragment = new UserFragment();
         return fragment;
     }
 
@@ -30,16 +31,17 @@ public class TransactionsFragment extends BaseMvpFragment<TransactionsMvpView, T
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mMainInterface = (MainMenuInterface) this.getActivity();
     }
 
     @Override
-    protected TransactionsMvpView getThis() {
+    protected MainMvpView getThis() {
         return this;
     }
 
     @Override
-    protected TransactionsPresenter instantiatePresenter() {
-        return new TransactionsPresenter();
+    protected MainPresenter instantiatePresenter() {
+        return new MainPresenter();
     }
 
 
@@ -48,7 +50,7 @@ public class TransactionsFragment extends BaseMvpFragment<TransactionsMvpView, T
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_transactions, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         mUnbinder = ButterKnife.bind(this, view);
         return view;
     }
