@@ -2,6 +2,7 @@ package com.contenderapps.apc.ui.home;
 
 
 import com.contenderapps.apc.analytics.Analytics;
+import com.contenderapps.apc.data.repository.AppRepository;
 import com.contenderapps.apc.ui.base.presenters.BasePresenter;
 
 import java.util.concurrent.TimeUnit;
@@ -19,8 +20,11 @@ public class HomePresenter extends BasePresenter<HomeMvpView> {
 
     private HomeMvpView tmpView;
 
+    private boolean mIsActivated;
+
+
     @Inject
-    Analytics mAnalytics;
+    AppRepository mAppRepository;
 
     public HomePresenter() {
         getPresenterComponent().inject(this);
@@ -36,6 +40,17 @@ public class HomePresenter extends BasePresenter<HomeMvpView> {
 
     public void resume() {
 
+    }
+
+
+
+
+    public void setActivated(boolean isActivated) {
+        mAppRepository.setActivated(isActivated);
+    }
+
+    public void checkActivated() {
+        mIsActivated = mAppRepository.isActivated();
     }
 
 

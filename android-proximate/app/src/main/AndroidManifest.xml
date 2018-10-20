@@ -35,9 +35,6 @@
         </activity>
 
 
-
-
-
         <!-- meta data -->
         <meta-data
             android:name="io.fabric.ApiKey"

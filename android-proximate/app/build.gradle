@@ -1,13 +1,21 @@
 apply plugin: 'com.android.application'
 
+
+// todo: try fastlane first
+//apply plugin: 'com.github.triplet.play'
+
+
+
+// todo: move this to config
+// load keystore.properties file for signing
 def keystorePropertiesFile = rootProject.file("keystore/signing.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
-//apply from: 'scripts/checkstyle.gradle'
-//apply from: 'scripts/findbugs.gradle'
-//apply from: 'scripts/jacocoreport.gradle'
-//apply from: 'scripts/pmd.gradle'
+apply from: 'scripts/checkstyle.gradle'
+apply from: 'scripts/findbugs.gradle'
+apply from: 'scripts/jacocoreport.gradle'
+apply from: 'scripts/pmd.gradle'
 
 apply from: 'config/config.gradle'
 apply from: 'config/dependencies.gradle'
@@ -16,7 +24,6 @@ apply from: 'config/dependencies.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -105,6 +112,61 @@ android {
     defaultConfig {
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
+    buildToolsVersion '28.0.3'
+}
+
+
+
+
+
+
+
+// todo: finish sonarqube quality gate
+//sonarqube {
+//    properties {
+//        property "sonar.java.binaries", "build/intermediates/classes/debug"
+////        property "sonar.jacoco.reportPath","build/outputs/code-coverage/connected/coverage.ec"
+//    }
+//}
+
+
+
+
+
+task myJacocoTestReport(type: JacocoReport, dependsOn: "testDevelopmentDebugUnitTest") {
+
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = [
+        '**/R.class',
+        '**/R$*.class',
+        '**/BuildConfig.*',
+        '**/Manifest*.*',
+        'android/**/*.*',
+        '**/Lambda$*.class',
+        '**/Lambda.class',
+        '**/*Lambda.class',
+        '**/*Lambda*.class',
+        '**/*Lambda*.*',
+        '**/*Builder.*',
+        '**/*_MembersInjector.class', //Dagger2 generated code
+        '**/*_MembersInjector*.*', //Dagger2 generated code
+        '**/*_*Factory*.*', //Dagger2 generated code
+        '**/*Component*.*', //Dagger2 generated code
+        '**/*Module*.*' //Dagger2 generated code
+    ]
+
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/development/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: project.projectDir, includes: ['**/*.exec' , '**/*.ec'])
 }
 
 

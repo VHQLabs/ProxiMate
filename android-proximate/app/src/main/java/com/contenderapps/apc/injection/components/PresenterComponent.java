@@ -5,6 +5,7 @@ import com.contenderapps.apc.ui.authentication.AuthenticationPresenter;
 import com.contenderapps.apc.ui.chat.ChatPresenter;
 import com.contenderapps.apc.ui.home.HomePresenter;
 import com.contenderapps.apc.ui.splash.SplashPresenter;
+import com.contenderapps.apc.ui.transactions.TransactionsPresenter;
 
 import dagger.Component;
 
@@ -24,6 +25,8 @@ public interface PresenterComponent {
     void inject(HomePresenter presenter);
 
     void inject(AuthenticationPresenter presenter);
+
+    void inject(TransactionsPresenter presenter);
 
     void inject(ChatPresenter presenter);
 
