@@ -1,4 +1,4 @@
-package com.contenderapps.apc.ui.home;
+package com.contenderapps.apc.ui.authentication;
 
 
 import android.content.Context;
@@ -9,12 +9,12 @@ import android.support.annotation.Nullable;
 import com.contenderapps.apc.ui.base.activities.BaseToolbarActivity;
 
 
-public class HomeActivity extends BaseToolbarActivity {
+public class AuthenticationActivity extends BaseToolbarActivity {
 
-    private static final String TAG = HomeActivity.class.getSimpleName();
+    private static final String TAG = AuthenticationActivity.class.getSimpleName();
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, HomeActivity.class);
+        Intent intent = new Intent(context, AuthenticationActivity.class);
         return intent;
     }
 
@@ -23,11 +23,10 @@ public class HomeActivity extends BaseToolbarActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//         TODO: 4/20/17 add the possibility of setting the mTitleStringRes easily
-        setToolbarTitle("hello there");
+        setToolbarTitle("Home");
 
         if (savedInstanceState == null) {
-            replaceFragment(HomeFragment.newInstance());
+            replaceFragment(AuthenticationFragment.newInstance());
         }
     }
 }
