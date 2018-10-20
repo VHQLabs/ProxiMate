@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_margin_quad"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/account_photo"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="First name"
+            android:paddingTop="@dimen/dimen_margin_double"
+            style="@style/CustomStyle.Title"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:theme="@style/MyEditTextStyle"
+            android:textSize="@dimen/dimen_text_size_subheading"
+            android:hint="Mario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Last name"
+            android:paddingTop="@dimen/dimen_margin_double"
+            style="@style/CustomStyle.Title"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:theme="@style/MyEditTextStyle"
+            android:textSize="@dimen/dimen_text_size_subheading"
+            android:hint="Rossi"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Services"
+            android:paddingTop="@dimen/dimen_margin_double"
+            style="@style/CustomStyle.Title"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox android:id="@+id/checkbox_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery"
+                style="@style/MyCheckboxStyle"
+                android:onClick="onCheckboxClicked"/>
+            <CheckBox android:id="@+id/checkbox_dog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Walk dog"
+                style="@style/MyCheckboxStyle"
+                android:onClick="onCheckboxClicked"/>
+            <CheckBox android:id="@+id/checkbox_babysitting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Babysitting"
+                style="@style/MyCheckboxStyle"
+                android:onClick="onCheckboxClicked"/>
+            <CheckBox android:id="@+id/checkbox_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                style="@style/MyCheckboxStyle"
+                android:onClick="onCheckboxClicked"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout >

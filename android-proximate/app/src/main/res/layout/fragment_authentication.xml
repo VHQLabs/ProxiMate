@@ -13,13 +13,12 @@
         android:gravity="center"
         >
 
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_centerInParent="true"
-            android:background="@color/white"
-            android:src="@drawable/qr"
-            />
+        <me.dm7.barcodescanner.zxing.ZXingScannerView
+            android:id="@+id/qr_code_scanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </me.dm7.barcodescanner.zxing.ZXingScannerView>
 
         <TextView
             android:layout_width="wrap_content"

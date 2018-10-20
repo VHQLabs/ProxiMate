@@ -9,6 +9,9 @@ import javax.inject.Singleton;
 public class PreferencesDataSource {
 
     static final String KEY_FIRST_ACCESS = "KEY_FIRST_ACCESS";
+
+    static final String KEY_IS_ACTIVATED = "KEY_IS_ACTIVATED";
+
     private final SharedPreferences mPref;
 
     @Inject
@@ -27,6 +30,19 @@ public class PreferencesDataSource {
     public void clear() {
         mPref.edit().clear().apply();
     }
+
+
+
+    public boolean isActivated() {
+        return mPref.getBoolean(KEY_IS_ACTIVATED, false);
+    }
+
+    public boolean setIsActivated(boolean isActivated) {
+        return setBoolean(KEY_IS_ACTIVATED, isActivated);
+    }
+
+
+
 
 
     /*
@@ -51,5 +67,10 @@ public class PreferencesDataSource {
         editor.putString(key, data);
         return editor.commit();
     }
+
+
+
+
+
 
 }

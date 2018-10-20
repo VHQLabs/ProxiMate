@@ -19,7 +19,8 @@
 
     <!--text dimensions-->
     <dimen name="dimen_text_size_headlines">24sp</dimen>
-    <dimen name="dimen_text_size_subheading">16sp</dimen>
+    <dimen name="dimen_text_size_heading">20sp</dimen>
+    <dimen name="dimen_text_size_subheading">18sp</dimen>
     <dimen name="dimen_text_size_body_text">14sp</dimen>
     <dimen name="dimen_text_size_caption">12sp</dimen>
 

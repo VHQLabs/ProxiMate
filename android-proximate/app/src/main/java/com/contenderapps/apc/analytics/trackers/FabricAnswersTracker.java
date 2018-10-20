@@ -2,22 +2,17 @@ package com.contenderapps.apc.analytics.trackers;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.contenderapps.apc.analytics.Analytics;
 import com.contenderapps.apc.analytics.model.Event;
 import com.contenderapps.apc.injection.qualifiers.ApplicationContext;
 import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.AnswersEvent;
 import com.crashlytics.android.answers.CustomEvent;
-import com.crashlytics.android.answers.LevelEndEvent;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.fabric.sdk.android.Fabric;
 
 /**
  *

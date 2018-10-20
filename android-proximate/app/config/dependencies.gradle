@@ -4,14 +4,14 @@ dependencies {
 
     def butterknifeVersion = '8.8.1'
     def crashlyticsVersion = '2.9.5'
-    def supportLibraryVersion = '27.0.2'
+    def supportLibraryVersion = '27.1.0'
     def rxJavaVersion = '2.2.2'
     def rxAndroidVersion = '2.1.0'
     def firebaseVersion = '16.0.0'
     def gsonVersion = '2.8.5'
     def okHttp3Version = '3.11.0'
     def retrofit2Version = '2.4.0'
-//    def fastlaneScreenGrabVersion = '1.0.1'
+    def glideVersion = '4.8.0'
 
     // testing versions
     def espressoVersion = '3.0.1'
@@ -27,12 +27,9 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     implementation "com.android.support:design:$supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
 
     // firebase
-    implementation "com.google.firebase:firebase-core:$firebaseVersion"
-    implementation "com.google.firebase:firebase-firestore:$firebaseVersion"
-    implementation "com.google.firebase:firebase-config:$firebaseVersion"
-    implementation "com.google.firebase:firebase-ads:15.0.1"
 
     // networking, web: okhttp & retrofit
     implementation "com.google.code.gson:gson:$gsonVersion"
@@ -61,6 +58,12 @@ dependencies {
 
 
 
+    // qr code scanning and generation
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
 
 
@@ -78,26 +81,12 @@ dependencies {
     }
 
     testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.1'
-//    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion") {
         exclude group: 'com.google.code.findbugs'
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude module: 'support-annotations'
     }
 
-
-    // fastlane
-//    androidTestImplementation "tools.fastlane:screengrab:$fastlaneScreenGrabVersion"
-
-    // Espresso dependencies
-//    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
-//    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoVersion"
-//    androidTestImplementation "com.android.support.test.espresso:espresso-accessibility:$espressoVersion"
-//    androidTestImplementation "com.android.support.test.espresso:espresso-web:$espressoVersion"
-//    androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:$espressoVersion"
-
-    // androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
 
 
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

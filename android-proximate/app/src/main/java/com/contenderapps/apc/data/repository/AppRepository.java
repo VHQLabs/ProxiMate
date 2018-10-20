@@ -20,6 +20,15 @@ public class AppRepository {
 
 
 
+    public boolean isActivated() {
+        return mPreferencesDataSource.isActivated();
+    }
+
+    public boolean setActivated(boolean isActivated) {
+        return mPreferencesDataSource.setIsActivated(isActivated);
+    }
+
+
 
 
 

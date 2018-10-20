@@ -4,12 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
-import android.util.Log;
 
 import com.contenderapps.apc.analytics.Analytics;
 import com.contenderapps.apc.analytics.model.Event;
 import com.contenderapps.apc.injection.qualifiers.ApplicationContext;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
@@ -27,14 +25,12 @@ public class FirebaseTracker extends AbstractTracker<Pair<String, Bundle>> {
 
     private static final String TAG = FirebaseTracker.class.getSimpleName();
 
-    private FirebaseAnalytics mFirebaseAnalytics;
     private Analytics mAnalytics;
     private DisposableObserver<Pair<String, Bundle>> mEventsDisposable;
 
     @Inject
     public FirebaseTracker(@ApplicationContext Context context, Analytics analytics) {
         super(context, analytics);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(mContext);
         mAnalytics = analytics;
 
         if (isInterestedInEvents()) {
@@ -101,9 +97,6 @@ public class FirebaseTracker extends AbstractTracker<Pair<String, Bundle>> {
 
     @Override
     void postEvent(@NonNull Pair<String, Bundle> event) {
-        if (event.first != null) {
-            mFirebaseAnalytics.logEvent(event.first, event.second);
-        }
     }
 
 
