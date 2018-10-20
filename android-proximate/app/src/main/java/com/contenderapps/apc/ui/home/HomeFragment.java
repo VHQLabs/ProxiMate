@@ -27,11 +27,11 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
     private boolean mIsActivated;
 
 
-    @BindView(R.id.transactions_btn)
-    Button mTransactions;
-
-    @BindView(R.id.activate_btn)
-    Button mActivate;
+//    @BindView(R.id.transactions_btn)
+//    Button mTransactions;
+//
+//    @BindView(R.id.activate_btn)
+//    Button mActivate;
 
 
 
@@ -54,10 +54,6 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
         } else {
             mPresenter.checkActivated();
         }
-
-
-
-
 
     }
 
@@ -129,12 +125,12 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
     }
 
 
-    @OnClick(R.id.activate_btn)
-    public void onActivateClick() {
-        //
-        Navigator.navigateToActivation(mContext, mIsActivated);
-//        this.getActivity().finish();
-    }
+//    @OnClick(R.id.activate_btn)
+//    public void onActivateClick() {
+//        //
+//        Navigator.navigateToActivation(mContext, mIsActivated);
+////        this.getActivity().finish();
+//    }
 
 
 
