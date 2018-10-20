@@ -18,5 +18,10 @@ Notable trait is that services are strictly local - you can ask for and offer a 
 
 Considered options:
 
-* [Flutter](https://www.google.com)-based application
-* Chatbot for Telegram, Facebook Messenger n etc.
+* ~~[Flutter](https://www.google.com)-based application~~
+* ~~Chatbot for Telegram, Facebook Messenger n etc.~~
+* Android application
+
+### Backend
+
+* Firebase
