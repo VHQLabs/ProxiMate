@@ -4,9 +4,10 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
 
-    <!-- fixme: what happens in case the data from the app is not stored on the server ? -->
-    <!-- fixme: do we lose it all ? -->
     <application
         android:name=".CustomApplication"
         android:allowBackup="false"
@@ -18,16 +19,16 @@
 
         <!-- activity -->
         <activity android:name=".ui.splash.SplashActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".ui.home.HomeActivity">
         </activity>
 
         <activity android:name=".ui.authentication.AuthenticationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
