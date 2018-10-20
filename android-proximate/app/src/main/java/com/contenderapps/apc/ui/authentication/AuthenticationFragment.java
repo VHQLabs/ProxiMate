@@ -15,10 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.contenderapps.apc.R;
+import com.contenderapps.apc.routing.Navigator;
 import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,6 +35,8 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
     private static final String TAG = AuthenticationFragment.class.getSimpleName();
     public static final int CAMERA_REQUEST_CODE = 1990;
 
+    private ActivatedInterface mActivated;
+
     @BindView(R.id.qr_code_scanner)
     ZXingScannerView qrCodeScanner;
 
@@ -46,6 +50,8 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mActivated = (ActivatedInterface) this.getActivity();
     }
 
     @Override
@@ -67,10 +73,7 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
         View view = inflater.inflate(R.layout.fragment_authentication, container, false);
         mUnbinder =  ButterKnife.bind(this, view);
 
-
         initScanner();
-
-
         return view;
     }
 
@@ -137,7 +140,7 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
     //                                  ButterKnife
     ////////////////////////////////////////////////////////////////////////////////////////////////
     private void initScanner() {
-        List<BarcodeFormat> formats = Collections.EMPTY_LIST;
+        List<BarcodeFormat> formats = new ArrayList<>();
         formats.add(BarcodeFormat.QR_CODE);
         qrCodeScanner.setFormats(formats);
         qrCodeScanner.setAutoFocus(true);
@@ -155,7 +158,15 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
     public void handleResult(Result result) {
         Log.d(TAG, "handleResult: " + result);
 
+        if (mActivated.isActivated()) { // it is already activated then we jump to the qr image
+            mActivated.changeToQRFragment();
+        } else {
+            // we finish the flow of authentication
+            Navigator.navigateToTransactions(mContext);
+        }
         // TODO: 20/10/2018 move to the next activity
+
+
 
 
     }

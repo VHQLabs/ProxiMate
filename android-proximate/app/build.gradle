@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 apply plugin: 'com.android.application'
 
 
@@ -25,7 +24,6 @@ apply from: 'config/dependencies.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -114,6 +112,7 @@ android {
     defaultConfig {
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
+    buildToolsVersion '28.0.3'
 }
 
 
@@ -172,117 +171,3 @@ task myJacocoTestReport(type: JacocoReport, dependsOn: "testDevelopmentDebugUnit
 
 
 
-
-=======
-apply plugin: 'com.android.application'
-
-def keystorePropertiesFile = rootProject.file("keystore/signing.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
-//apply from: 'scripts/checkstyle.gradle'
-//apply from: 'scripts/findbugs.gradle'
-//apply from: 'scripts/jacocoreport.gradle'
-//apply from: 'scripts/pmd.gradle'
-
-apply from: 'config/config.gradle'
-apply from: 'config/dependencies.gradle'
-
-
-
-android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-
-    signingConfigs {
-        // todo: move to keystore signing configuration file
-        debug {
-            storeFile file("keystore/debug.key")
-            storePassword "android_debug_keystore_password"
-            keyAlias "android_debug_key"
-            keyPassword "android_debug_key_password"
-        }
-        release {
-            storeFile       rootProject.file(keystoreProperties['keyFile'])
-            keyAlias        keystoreProperties['keyAlias']
-            keyPassword     keystoreProperties['keyPassword']
-            storePassword   keystoreProperties['storePassword']
-        }
-    }
-
-
-    buildTypes {
-        debug {
-            minifyEnabled false
-            testCoverageEnabled true
-            useProguard false
-        }
-        release {
-            shrinkResources true
-            minifyEnabled true
-            useProguard true
-            signingConfig signingConfigs.release
-
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            testProguardFiles getDefaultProguardFile('proguard-android.txt') 'proguardTest-rules.pro'
-        }
-    }
-
-
-    // todo: how does it affect the build ?
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/ASL2.0'
-        exclude 'META-INF/services/javax.annotation.processing.Processor'
-        exclude 'main/AndroidManifest.xml'
-    }
-
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
-
-
-
-
-    dexOptions {
-        /* Declares whether to pre-dex library dependencies so that your incremental builds are faster.
-         * Because this feature may slow down your clean builds, you may want
-         * to disable this feature for your continuous integration server.
-         */
-        preDexLibraries true
-        /* Sets the maximum number of threads to use while running dex-in-process.
-         * The default is 4.
-         */
-        maxProcessCount 2
-        javaMaxHeapSize "4g"
-    }
-
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
-
-
-    defaultConfig {
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-    }
-}
-
-
-
->>>>>>> 02a1c5d1fd41a37e46b7aafe99f240540720d4bc

@@ -19,13 +19,16 @@ import com.contenderapps.apc.ui.home.HomeActivity;
 public class Navigator {
 
 
+
     public static void navigateToHome(Context context) {
         Intent intent = HomeActivity.getStartIntent(context);
         context.startActivity(intent);
     }
 
-    public static void navigateToActivation(Context context) {
+    public static void navigateToActivation(Context context, boolean mIsActivated) {
         Intent intent = AuthenticationActivity.getStartIntent(context);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.putExtra(AuthenticationActivity.EXTRA_ACTIVATED, mIsActivated);
         context.startActivity(intent);
     }
 
