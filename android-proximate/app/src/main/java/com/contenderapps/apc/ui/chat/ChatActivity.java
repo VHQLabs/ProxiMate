@@ -189,6 +189,24 @@ public class ChatActivity extends BaseToolbarActivity
     public boolean onSubmit(CharSequence input) {
         Message message = new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(0), input.toString());
         messagesAdapter.addToStart(message, true);
+
+        new Handler().postDelayed(new Runnable() { //imitation of internet connection
+            @Override
+            public void run() {
+                messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Great. I'll write to you when receive it"), true);
+
+            }
+        }, 2000);
+
+
+        new Handler().postDelayed(new Runnable() { //imitation of internet connection
+            @Override
+            public void run() {
+                messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Received your package"), true);
+
+            }
+        }, 10000);
+
         return true;
     }
 
