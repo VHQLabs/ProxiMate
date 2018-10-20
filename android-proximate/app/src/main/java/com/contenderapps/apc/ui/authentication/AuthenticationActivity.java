@@ -26,7 +26,13 @@ public class AuthenticationActivity extends BaseToolbarActivity {
         setToolbarTitle("Home");
 
         if (savedInstanceState == null) {
-            replaceFragment(AuthenticationFragment.newInstance());
+//            replaceFragment(AuthenticationFragment.newInstance());
+            replaceFragment(AuthenticationSecondFragment.newInstance());
         }
     }
+
+
+
+
+
 }

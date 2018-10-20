@@ -19,11 +19,13 @@ import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
+import java.util.Collections;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-import static com.google.android.gms.common.util.CollectionUtils.listOf;
 
 
 public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpView, AuthenticationPresenter> implements AuthenticationMvpView, ZXingScannerView.ResultHandler {
@@ -136,7 +138,9 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
 
 
     private void initScanner() {
-        qrCodeScanner.setFormats(listOf(BarcodeFormat.QR_CODE));
+        List<BarcodeFormat> formats = Collections.EMPTY_LIST;
+        formats.add(BarcodeFormat.QR_CODE);
+        qrCodeScanner.setFormats(formats);
         qrCodeScanner.setAutoFocus(true);
         qrCodeScanner.setLaserColor(R.color.colorAccent);
         qrCodeScanner.setMaskColor(R.color.colorAccent);
