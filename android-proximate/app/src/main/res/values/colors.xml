@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#f28e3d</color>
+    <color name="colorPrimaryDark">#e5620d</color>
+    <color name="colorAccent">#45ad4c</color>
     <!--<color name="colorPrimaryLight"></color>-->
     <color name="colorTextPrimary">#212121</color>
     <color name="colorTextSecondary">#757575</color>
@@ -33,7 +33,7 @@
 
 
     <!-- application palette -->
-
+    <color name="color_background_request_card">#ffe756</color>
 
 
 </resources>
