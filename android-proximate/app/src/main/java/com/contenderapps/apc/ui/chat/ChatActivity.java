@@ -107,6 +107,9 @@ public class ChatActivity extends BaseToolbarActivity
             super.onStart();
             messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(0), "I want you to receive for me \"Striped Hudson Jeans Shorts\" from Mercari. " +
                     "Expected on Monday, October 22"), true);
+            Message message = new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(0), "");
+            message.setImage(new Message.Image(MessagesFixtures.getImage(0)));
+            messagesAdapter.addToStart(message, true);
             messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Ready to receive it for you. My address Nagodziców 18-54."), true);
 
 //            messagesAdapter.addToStart(MessagesFixtures.getTextMessage(), true);

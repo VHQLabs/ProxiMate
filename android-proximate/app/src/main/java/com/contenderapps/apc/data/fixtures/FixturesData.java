@@ -70,6 +70,7 @@ abstract class FixturesData {
 
     static final ArrayList<String> images = new ArrayList<String>() {
         {
+            add("https://static-mercariapp-com.akamaized.net/thumb/photos/m47084397427_1.jpg?1538534179");
             add("https://habrastorage.org/getpro/habr/post_images/e4b/067/b17/e4b067b17a3e414083f7420351db272b.jpg");
             add("https://cdn.pixabay.com/photo/2017/12/25/17/48/waters-3038803_1280.jpg");
         }
@@ -99,8 +100,12 @@ abstract class FixturesData {
         return messages.get(rnd.nextInt(messages.size()));
     }
 
-    static String getRandomImage() {
+    public static String getRandomImage() {
         return images.get(rnd.nextInt(images.size()));
+    }
+
+    public static String getImage(Integer id){
+        return images.get(id);
     }
 
     static boolean getRandomBoolean() {
