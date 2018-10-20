@@ -1,0 +1,32 @@
+{
+  "name" : "Guess Her Age",
+
+  "applicationId" : "com.funandchallangegames.android.guessherage",
+
+  "creationDate" : "2017-07-06",
+
+  "modified" : "automatically-updated-value-date-with-hour",
+
+  "colorTheme" : "theme_007",
+
+  "defaultLevels" : 30,
+
+  "coinSettings" : {
+    "rewardShare" : 15,
+    "hintAnswer" : 50,
+    "hintLetter" : 15
+  },
+
+
+  "monetization" : {
+    "banner" : "ua-icc",
+    "interstitial" : "auacc-interstiatial",
+    "rewarderVideo" : "adsf",
+    "native" : ""
+  }
+
+
+
+
+
+}

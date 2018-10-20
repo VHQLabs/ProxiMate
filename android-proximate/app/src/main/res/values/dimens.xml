@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TABLET DETECTION -->
+    <bool name="isTablet">false</bool>
+
+    <!-- ORIENTATION DETECTION -->
+    <bool name="isLandscape">false</bool>
+
+    <dimen name="default_toolbar_height">56dp</dimen>
+
+    <dimen name="default_grid_size">4dp</dimen>
+    <dimen name="default_grid_size_double">8dp</dimen>
+    <dimen name="default_grid_size_quad">16dp</dimen>
+
+    <dimen name="default_list_width">320dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+
+
+    <!--text dimensions-->
+    <dimen name="dimen_text_size_headlines">24sp</dimen>
+    <dimen name="dimen_text_size_subheading">16sp</dimen>
+    <dimen name="dimen_text_size_body_text">14sp</dimen>
+    <dimen name="dimen_text_size_caption">12sp</dimen>
+
+
+</resources>

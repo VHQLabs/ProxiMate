@@ -1,0 +1,174 @@
+apply plugin: 'com.android.application'
+
+
+// todo: try fastlane first
+//apply plugin: 'com.github.triplet.play'
+
+
+
+// todo: move this to config
+// load keystore.properties file for signing
+def keystorePropertiesFile = rootProject.file("keystore/signing.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+apply from: 'scripts/checkstyle.gradle'
+apply from: 'scripts/findbugs.gradle'
+apply from: 'scripts/jacocoreport.gradle'
+apply from: 'scripts/pmd.gradle'
+
+apply from: 'config/config.gradle'
+apply from: 'config/dependencies.gradle'
+
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    signingConfigs {
+        // todo: move to keystore signing configuration file
+        debug {
+            storeFile file("keystore/debug.key")
+            storePassword "android_debug_keystore_password"
+            keyAlias "android_debug_key"
+            keyPassword "android_debug_key_password"
+        }
+        release {
+            storeFile       rootProject.file(keystoreProperties['keyFile'])
+            keyAlias        keystoreProperties['keyAlias']
+            keyPassword     keystoreProperties['keyPassword']
+            storePassword   keystoreProperties['storePassword']
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            testCoverageEnabled true
+            useProguard false
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            useProguard true
+            signingConfig signingConfigs.release
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            testProguardFiles getDefaultProguardFile('proguard-android.txt') 'proguardTest-rules.pro'
+        }
+    }
+
+
+    // todo: how does it affect the build ?
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'main/AndroidManifest.xml'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+
+
+
+    dexOptions {
+        /* Declares whether to pre-dex library dependencies so that your incremental builds are faster.
+         * Because this feature may slow down your clean builds, you may want
+         * to disable this feature for your continuous integration server.
+         */
+        preDexLibraries true
+        /* Sets the maximum number of threads to use while running dex-in-process.
+         * The default is 4.
+         */
+        maxProcessCount 2
+        javaMaxHeapSize "4g"
+    }
+
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+
+    defaultConfig {
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    }
+}
+
+
+
+
+
+
+
+// todo: finish sonarqube quality gate
+//sonarqube {
+//    properties {
+//        property "sonar.java.binaries", "build/intermediates/classes/debug"
+////        property "sonar.jacoco.reportPath","build/outputs/code-coverage/connected/coverage.ec"
+//    }
+//}
+
+
+
+
+
+task myJacocoTestReport(type: JacocoReport, dependsOn: "testDevelopmentDebugUnitTest") {
+
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = [
+        '**/R.class',
+        '**/R$*.class',
+        '**/BuildConfig.*',
+        '**/Manifest*.*',
+        'android/**/*.*',
+        '**/Lambda$*.class',
+        '**/Lambda.class',
+        '**/*Lambda.class',
+        '**/*Lambda*.class',
+        '**/*Lambda*.*',
+        '**/*Builder.*',
+        '**/*_MembersInjector.class', //Dagger2 generated code
+        '**/*_MembersInjector*.*', //Dagger2 generated code
+        '**/*_*Factory*.*', //Dagger2 generated code
+        '**/*Component*.*', //Dagger2 generated code
+        '**/*Module*.*' //Dagger2 generated code
+    ]
+
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/development/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: project.projectDir, includes: ['**/*.exec' , '**/*.ec'])
+}
+
+
+
+

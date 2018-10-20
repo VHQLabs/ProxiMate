@@ -1,0 +1,71 @@
+android {
+
+    defaultConfig {
+        applicationId       project.APPLICATION_ID
+        targetSdkVersion    rootProject.ext.targetSdkVersion
+        minSdkVersion       rootProject.ext.minSdkVersion
+
+        // todo: better and AUTOMATIC versioning scheme
+        versionCode 1
+        versionName '0.0.1'
+
+        // testing
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+
+    //
+    // list each dimension determines its priority, from highest to lowest,
+    // when Gradle merges variant sources and configurations. You must assign
+    // each product flavor you configure to one of the flavor dimensions.
+    flavorDimensions "default"
+
+
+    productFlavors {
+        development {
+            applicationId = 'com.changeme.usebettername'
+            resValue "string", "app_name", "APC"
+            minSdkVersion 22                            // avoids legacy multidex
+            resConfigs "en", "xxhdpi"                   // avoid compiling unnecessary resources
+            ext.enableCrashlytics = false
+//            useProguard false
+        }
+
+        production {
+            applicationId = 'com.changeme.usebettername'
+            resValue "string", "app_name", "APC+"
+        }
+    }
+
+
+    productFlavors.all {
+        buildConfigField "String", "TEST_USERNAME", '"a"'
+        buildConfigField "String", "TEST_PASSWORD", '"b"'
+        resValue "string", "ad_native_id", "ca-app-pub-5996851763051135/1449760156"
+        resValue "string", "ad_interstitial_id", ""
+
+//        buildConfigField "String" "ad_native_id" "ca-app-pub-5996851763051135/1449760156"
+    }
+
+
+//    android.variantFilter { variant ->
+//        if (variant.buildType.name == 'release' && variant.getFlavors().get(0).name == 'debug') {
+//            variant.setIgnore(true)
+//        }
+//    }
+
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+
+
+
+    // resources common to all the flavors
+
+
+
+
+}

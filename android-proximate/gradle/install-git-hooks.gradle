@@ -1,0 +1,18 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+tasks.create(name: 'gitExecutableHooks') << {
+    if (Os.isFamily(Os.FAMILY_UNIX)
+        || Os.isFamily(Os.FAMILY_MAC)) {
+        Runtime.getRuntime().exec("chmod -R +x .git/hooks/");
+    }
+}
+
+task gitInstallHooks(type: Copy) {
+    from new File(rootProject.rootDir, './gradle/pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+}
+
+gitExecutableHooks.dependsOn gitInstallHooks
+project.afterEvaluate {
+    gitExecutableHooks.execute()
+}

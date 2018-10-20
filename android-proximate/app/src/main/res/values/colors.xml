@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--<color name="colorPrimaryLight"></color>-->
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+    <color name="colorWindowBackground">#eee</color>
+
+    <color name="color_for_selector">#1a000000</color>
+    <color name="color_for_selector_light">#eeffffff</color>
+
+
+    <!-- common colors -->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="blue">#0000ff</color>
+
+
+
+    <color name="color_question_answered">#FAFCBE</color>
+    <color name="color_question_answered_correctly">#41F547</color>
+    <color name="color_question_answered_wrong">#DF0061</color>
+
+
+    <!-- todo: add transparent -->
+    <!-- this one can go on top of an screen -->
+    <color name="color_fragment_overlay">#ee23313b</color>
+    <color name="color_transparent">#00000000</color>
+
+
+    <!-- application palette -->
+
+
+
+</resources>

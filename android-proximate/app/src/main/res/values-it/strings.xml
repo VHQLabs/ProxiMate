@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hawk</string>
+    <string name="lbl_home_item_emergency_phone_numbers">Numeri Utili</string>
+    <string name="lbl_home_item_settings">Impostazioni</string>
+    <string name="lbl_home_item_weather">Bollettini Meteo</string>
+    <string name="lbl_list_item_level">Livello</string>
+    <string name="placeholder_level_id">Livello: #</string>
+    <string name="placeholder_question_id">Domanda: #</string>
+    <string name="lbl_home_item_tutorial">Tutorial</string>
+    <string name="placeholder_success_rate">#% Risposte Corrette</string>
+</resources>

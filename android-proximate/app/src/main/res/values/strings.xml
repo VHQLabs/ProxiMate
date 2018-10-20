@@ -1,0 +1,22 @@
+<resources>
+
+
+
+    <!-- HOME -->
+    <string name="lbl_home_item_quiz" translatable="false">Quiz</string>
+    <string name="lbl_home_item_weather">Weather Info</string>
+    <string name="lbl_home_item_tutorial">Tutorial</string>
+    <string name="lbl_home_item_emergency_phone_numbers">Emergency numbers</string>
+    <string name="lbl_home_item_settings">Settings</string>
+
+
+    <!-- QUIZ LEVELS -->
+    <string name="lbl_list_item_level">Level</string>
+
+
+
+    <!-- PLACEHOLDER -->
+    <string name="placeholder_level_id">Livello: #</string>
+    <string name="placeholder_question_id">Domanda: #</string>
+    <string name="placeholder_success_rate">#% Correct Answers</string>
+</resources>

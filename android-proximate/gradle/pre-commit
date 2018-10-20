@@ -1,0 +1,41 @@
+#!/bin/bash
+# From gist at https://gist.github.com/chadmaughan/5889802
+#
+# TO BYPASS PRE-COMMIT USE FOLLOWING COMMAND:
+# git commit --no-verify
+
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+echo "******************************************** "
+echo "*"
+echo "*  PRE-COMMIT CHECK on branch $BRANCH.git "
+echo "*"
+echo "******************************************** "
+
+if [[ "$BRANCH" == "master" || "$BRANCH" == "develop" ]]; then
+
+    echo "--- GRADLE tests: Executing... ---"
+
+	# stash any unstaged changes
+    git stash -q --keep-index
+
+    # run the tests with the gradle wrapper
+    ./gradlew testMockDebugUnitTest connectedMockDebugAndroidTest --daemon
+
+    # store the last exit code in a variable
+    RESULT=$?
+
+    # unstash the unstashed changes
+    git stash pop -q
+
+    # return the './gradlew test' exit code
+    exit $RESULT
+else
+
+    echo "--- Gradle tests: SKIPPED ---"
+    exit 0
+fi
+
+
+

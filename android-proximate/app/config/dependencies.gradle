@@ -1,0 +1,109 @@
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    def butterknifeVersion = '8.8.1'
+    def crashlyticsVersion = '2.9.5'
+    def supportLibraryVersion = '27.0.2'
+    def rxJavaVersion = '2.2.2'
+    def rxAndroidVersion = '2.1.0'
+    def firebaseVersion = '16.0.0'
+    def gsonVersion = '2.8.5'
+    def okHttp3Version = '3.11.0'
+    def retrofit2Version = '2.4.0'
+//    def fastlaneScreenGrabVersion = '1.0.1'
+
+    // testing versions
+    def espressoVersion = '3.0.1'
+
+
+    // common
+    implementation "com.google.guava:guava:23.0-android"
+    implementation "com.google.dagger:dagger:2.17"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.17"
+
+
+    // android-specific
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+
+    // firebase
+    implementation "com.google.firebase:firebase-core:$firebaseVersion"
+    implementation "com.google.firebase:firebase-firestore:$firebaseVersion"
+    implementation "com.google.firebase:firebase-config:$firebaseVersion"
+    implementation "com.google.firebase:firebase-ads:15.0.1"
+
+    // networking, web: okhttp & retrofit
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okHttp3Version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp3Version"
+    implementation "com.squareup.okhttp3:mockwebserver:$okHttp3Version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofit2Version"
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit2Version") {
+        exclude module: 'okhttp'
+    }
+
+    // butterknife
+    implementation "com.jakewharton:butterknife:$butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+
+    // rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    // Crashlytics - the main choice for bug reporting
+    implementation ("com.crashlytics.sdk.android:crashlytics:$crashlyticsVersion@aar") {
+        transitive = true;
+    }
+
+
+
+
+
+
+
+
+    // todo: implement a testing phase in jenkins pipeline
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //                                  Testing
+    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+    }
+
+    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.1'
+//    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion") {
+        exclude group: 'com.google.code.findbugs'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'support-annotations'
+    }
+
+
+    // fastlane
+//    androidTestImplementation "tools.fastlane:screengrab:$fastlaneScreenGrabVersion"
+
+    // Espresso dependencies
+//    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
+//    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+//    androidTestImplementation "com.android.support.test.espresso:espresso-accessibility:$espressoVersion"
+//    androidTestImplementation "com.android.support.test.espresso:espresso-web:$espressoVersion"
+//    androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:$espressoVersion"
+
+    // androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
+
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    testImplementation "org.robolectric:robolectric:3.5.1"
+
+
+
+
+}

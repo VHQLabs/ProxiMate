@@ -1,0 +1,19 @@
+ext.versions = [
+
+        // General
+        buildTools                 : '25.0.1',
+
+        // Plugins
+        androidPlugin              : '2.3.2',
+        retrolambdaPlugin          : '3.3.1',
+        dexCountPlugin             : '0.6.1',
+        playPublisherPlugin        : '1.2.0-beta1',
+        fabricPlugin               : '1.22.0',
+        jacocoPlugin               : '0.7.7.201606060606',
+        apkSizePlugin              : '0.4.0-SNAPSHOT',
+        spoonGradlePlugin          : '1.2.2',
+
+]
+
+
+
