@@ -19,9 +19,18 @@
         <item name="android:background">@color/colorWindowBackground</item>
     </style>
 
+    <style name="CustomStyle.Headline">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/dimen_text_size_headlines</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="CustomStyle.Title">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/dimen_text_size_subheading</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
