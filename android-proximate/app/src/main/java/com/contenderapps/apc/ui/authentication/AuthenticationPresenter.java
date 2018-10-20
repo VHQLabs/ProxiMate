@@ -28,14 +28,6 @@ public class AuthenticationPresenter extends BasePresenter<AuthenticationMvpView
         getPresenterComponent().inject(this);
         mIsFirstLoad = true;
 
-        String model = Build.MODEL;
-        if (model.startsWith("DUK")) {
-            mAppRepository.setActivated(true);
-            isActivated = true;
-        } else {
-            // not activated now
-            isActivated = mAppRepository.isActivated();
-        }
 
     }
 

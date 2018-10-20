@@ -6,4 +6,5 @@ import com.contenderapps.apc.ui.base.presenters.MvpView;
 public interface HomeMvpView extends MvpView {
 
 
+    public void setActivated(boolean activated);
 }

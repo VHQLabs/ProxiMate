@@ -10,11 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.contenderapps.apc.R;
 import com.contenderapps.apc.analytics.model.UserProperty;
 import com.contenderapps.apc.glide.ImageGlide;
+import com.contenderapps.apc.routing.Navigator;
 import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 import com.contenderapps.apc.utils.QRUtils;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
@@ -23,7 +25,7 @@ import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+import butterknife.OnClick;
 
 
 public class AuthenticationSecondFragment extends BaseMvpFragment<AuthenticationMvpView, AuthenticationPresenter> implements AuthenticationMvpView {
@@ -32,11 +34,13 @@ public class AuthenticationSecondFragment extends BaseMvpFragment<Authentication
 
     private QRUtils qrGenerator;
 
-
-
+    private ActivatedInterface mActivated;
 
     @BindView(R.id.qr_image)
     ImageView mQRImage;
+
+    @BindView(R.id.finish_tv)
+    TextView mFinish;
 
     public static AuthenticationSecondFragment newInstance() {
         AuthenticationSecondFragment fragment = new AuthenticationSecondFragment();
@@ -47,8 +51,8 @@ public class AuthenticationSecondFragment extends BaseMvpFragment<Authentication
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         qrGenerator = QRUtils.newInstance(mContext);
+        mActivated = (ActivatedInterface) this.getActivity();
     }
 
     @Override
@@ -141,12 +145,10 @@ public class AuthenticationSecondFragment extends BaseMvpFragment<Authentication
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  ButterKnife
     ////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
+    @OnClick(R.id.finish_tv)
+    public void onFinishClicked() {
+        Navigator.navigateToTransactions(mContext);
+    }
 
 
 

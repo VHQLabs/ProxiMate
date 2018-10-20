@@ -1,6 +1,7 @@
 package com.contenderapps.apc.ui.home;
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -23,6 +24,8 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
 
     private static final String TAG = HomeFragment.class.getSimpleName();
 
+    private boolean mIsActivated;
+
 
     @BindView(R.id.transactions_btn)
     Button mTransactions;
@@ -42,6 +45,20 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        String model = Build.MODEL;
+        if (model.startsWith("DUK")) {
+            mPresenter.setActivated(true);
+            mIsActivated = true;
+        } else {
+            mPresenter.checkActivated();
+        }
+
+
+
+
+
     }
 
     @Override
@@ -106,9 +123,6 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
 
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                  ButterKnife
-    ////////////////////////////////////////////////////////////////////////////////////////////////
     @OnClick(R.id.transactions_btn)
     public void onTransactionsClick() {
 
@@ -118,8 +132,20 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
     @OnClick(R.id.activate_btn)
     public void onActivateClick() {
         //
-        Navigator.navigateToActivation(mContext);
-        this.getActivity().finish();
+        Navigator.navigateToActivation(mContext, mIsActivated);
+//        this.getActivity().finish();
+    }
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                  ButterKnife
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public void setActivated(boolean activated) {
+        mIsActivated = activated;
     }
 
 

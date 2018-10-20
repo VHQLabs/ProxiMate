@@ -1,24 +1,19 @@
-package com.contenderapps.apc.ui.home;
+package com.contenderapps.apc.ui.transactions;
 
 
-import com.contenderapps.apc.analytics.Analytics;
 import com.contenderapps.apc.data.repository.AppRepository;
 import com.contenderapps.apc.ui.base.presenters.BasePresenter;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
 
+public class TransactionsPresenter extends BasePresenter<TransactionsMvpView> {
 
-public class HomePresenter extends BasePresenter<HomeMvpView> {
-
-    private static final String TAG = HomePresenter.class.getSimpleName();
+    private static final String TAG = TransactionsPresenter.class.getSimpleName();
 
     private boolean mIsFirstLoad;
 
-    private HomeMvpView tmpView;
+    private TransactionsMvpView tmpView;
 
     private boolean mIsActivated;
 
@@ -26,7 +21,7 @@ public class HomePresenter extends BasePresenter<HomeMvpView> {
     @Inject
     AppRepository mAppRepository;
 
-    public HomePresenter() {
+    public TransactionsPresenter() {
         getPresenterComponent().inject(this);
         mIsFirstLoad = true;
     }
