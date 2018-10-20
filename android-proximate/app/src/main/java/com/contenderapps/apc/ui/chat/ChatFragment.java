@@ -12,12 +12,12 @@ import com.contenderapps.apc.R;
 import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 
 
-public class HomeFragment extends BaseMvpFragment<HomeMvpView, ChatPresenter> implements HomeMvpView {
+public class ChatFragment extends BaseMvpFragment<ChatMvpView, ChatPresenter> implements ChatMvpView {
 
-    private static final String TAG = HomeFragment.class.getSimpleName();
+    private static final String TAG = ChatFragment.class.getSimpleName();
 
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+    public static ChatFragment newInstance() {
+        ChatFragment fragment = new ChatFragment();
         return fragment;
     }
 
@@ -28,7 +28,7 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, ChatPresenter> im
     }
 
     @Override
-    protected HomeMvpView getThis() {
+    protected ChatMvpView getThis() {
         return this;
     }
 

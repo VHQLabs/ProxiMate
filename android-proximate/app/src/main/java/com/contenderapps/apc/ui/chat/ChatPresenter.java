@@ -7,13 +7,13 @@ import com.contenderapps.apc.ui.base.presenters.BasePresenter;
 import javax.inject.Inject;
 
 
-public class ChatPresenter extends BasePresenter<HomeMvpView> {
+public class ChatPresenter extends BasePresenter<ChatMvpView> {
 
     private static final String TAG = ChatPresenter.class.getSimpleName();
 
     private boolean mIsFirstLoad;
 
-    private HomeMvpView tmpView;
+    private ChatMvpView tmpView;
 
     @Inject
     Analytics mAnalytics;

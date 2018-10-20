@@ -79,7 +79,7 @@ public class ChatActivity extends BaseToolbarActivity
             setToolbarTitle("Chat");
 
 //            if (savedInstanceState == null) {
-//                replaceFragment(HomeFragment.newInstance());
+//                replaceFragment(ChatFragment.newInstance());
 //            }
 
 
@@ -97,7 +97,6 @@ public class ChatActivity extends BaseToolbarActivity
 
             MessageInput input = (MessageInput) findViewById(R.id.input);
             input.setInputListener(this);
-//            input.setTypingListener(this);
             input.setAttachmentsListener(this);
 
         }
