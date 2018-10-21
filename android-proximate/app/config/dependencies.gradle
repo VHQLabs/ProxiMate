@@ -93,6 +93,6 @@ dependencies {
     testImplementation "org.robolectric:robolectric:3.5.1"
 
 
-
+    implementation 'com.google.android.gms:play-services-maps:+'
 
 }

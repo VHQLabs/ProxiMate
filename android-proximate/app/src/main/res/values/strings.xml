@@ -1,7 +1,6 @@
 <resources>
 
 
-
     <!-- HOME -->
     <string name="lbl_home_item_quiz" translatable="false">Quiz</string>
     <string name="lbl_home_item_weather">Weather Info</string>
@@ -14,11 +13,11 @@
     <string name="lbl_list_item_level">Level</string>
 
 
-
     <!-- PLACEHOLDER -->
     <string name="placeholder_level_id">Livello: #</string>
     <string name="placeholder_question_id">Domanda: #</string>
     <string name="placeholder_success_rate">#% Correct Answers</string>
     <string name="which_service_do_you_need">Which service do you need?</string>
     <string name="get_verified_by_your_neighbour">Get verified by your neighbour</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
