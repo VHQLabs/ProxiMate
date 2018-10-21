@@ -9,8 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.contenderapps.apc.R;
 
@@ -95,6 +99,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         private Context mContext;
 
+        @BindView(R.id.text)
+        TextView mText;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -104,7 +111,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         public void render(String s) {
             // todo; add text
-
+            mText.setText(s);
         }
 
     }

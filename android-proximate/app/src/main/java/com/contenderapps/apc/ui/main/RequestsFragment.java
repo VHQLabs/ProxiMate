@@ -84,11 +84,10 @@ public class RequestsFragment extends BaseMvpFragment<MainMvpView, MainPresenter
 
 
         List<String> ll = new ArrayList<>();
-        ll.add("");
-        ll.add("Getting dogs");
-        ll.add("Getting dogs");
-        ll.add("Getting dogs");
-        ll.add("Getting dogs");
+        ll.add("Take the delivery from postman");
+        ll.add("Take the kids from school");
+        ll.add("Deliver the Android app");
+        ll.add("Deliver the presentation in English");
         mAdapter.setData(ll);
 
 
