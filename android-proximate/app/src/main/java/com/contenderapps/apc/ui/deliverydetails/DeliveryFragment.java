@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.contenderapps.apc.R;
+import com.contenderapps.apc.routing.Navigator;
 import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class DeliveryFragment extends BaseMvpFragment<DeliveryMvpView, DeliveryPresenter> implements DeliveryMvpView {
@@ -102,7 +104,10 @@ public class DeliveryFragment extends BaseMvpFragment<DeliveryMvpView, DeliveryP
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  ButterKnife
     ////////////////////////////////////////////////////////////////////////////////////////////////
-
+    @OnClick(R.id.submit_request)
+    public void onDeliveryClick() {
+        Navigator.navigateToMap(mContext);
+    }
 
 
 

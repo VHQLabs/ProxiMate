@@ -9,6 +9,7 @@ import com.contenderapps.apc.ui.create.CreateActivity;
 import com.contenderapps.apc.ui.deliverydetails.DeliveryActivity;
 import com.contenderapps.apc.ui.home.HomeActivity;
 import com.contenderapps.apc.ui.main.MainActivity;
+import com.contenderapps.apc.ui.map.MapsActivity;
 
 /**
  * Class created to handle all the navigation between activities. This class knows how to open
@@ -52,6 +53,10 @@ public class Navigator {
         context.startActivity(intent);
     }
 
+    public static void navigateToMap(Context context) {
+        Intent intent = MapsActivity.getStartIntent(context);
+        context.startActivity(intent);
+    }
 
 
 
