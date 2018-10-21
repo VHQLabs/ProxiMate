@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.contenderapps.apc.R;
@@ -96,6 +97,11 @@ public class AuthenticationSecondFragment extends BaseMvpFragment<Authentication
                 .placeholder(new ColorDrawable(Color.WHITE))
                 .into(mQRImage);
 
+
+        if (!mActivated.isActivated()) {
+            mFinish.setText("Next");
+        }
+
         return view;
     }
 
@@ -147,7 +153,14 @@ public class AuthenticationSecondFragment extends BaseMvpFragment<Authentication
     ////////////////////////////////////////////////////////////////////////////////////////////////
     @OnClick(R.id.finish_tv)
     public void onFinishClicked() {
-        Navigator.navigateToTransactions(mContext);
+
+        if (mActivated.isActivated()) {
+            Navigator.navigateToTransactions(mContext);
+        } else {
+            mActivated.changeToCameraFragment();
+            Toast.makeText(mContext, "Account Activated", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 

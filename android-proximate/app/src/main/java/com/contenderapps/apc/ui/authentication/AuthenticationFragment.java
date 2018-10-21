@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.contenderapps.apc.R;
 import com.contenderapps.apc.routing.Navigator;
@@ -162,6 +163,9 @@ public class AuthenticationFragment extends BaseMvpFragment<AuthenticationMvpVie
             Navigator.navigateToTransactions(mContext);
         }
         // TODO: 20/10/2018 move to the next activity
+
+
+        Toast.makeText(mContext, "QR Code Loaded", Toast.LENGTH_LONG).show();
 
 
 

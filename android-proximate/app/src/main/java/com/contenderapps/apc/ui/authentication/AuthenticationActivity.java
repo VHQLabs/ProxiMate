@@ -76,4 +76,9 @@ public class AuthenticationActivity extends BaseToolbarActivity implements Activ
     public void changeToQRFragment() {
         replaceFragment(AuthenticationSecondFragment.newInstance());
     }
+
+    @Override
+    public void changeToCameraFragment() {
+        replaceFragment(AuthenticationFragment.newInstance());
+    }
 }

@@ -47,7 +47,9 @@ public class HomeFragment extends BaseMvpFragment<HomeMvpView, HomePresenter> im
             mPresenter.setActivated(true);
             mIsActivated = true;
         } else {
-            mPresenter.checkActivated();
+//            mPresenter.checkActivated();
+            mPresenter.setActivated(false);
+            mIsActivated = false;
         }
 
     }

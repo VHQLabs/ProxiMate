@@ -10,4 +10,8 @@ public interface ActivatedInterface {
 
     void changeToQRFragment();
 
+    void changeToCameraFragment();
+
+
+
 }
