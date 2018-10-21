@@ -1,10 +1,12 @@
 package com.contenderapps.apc.ui.map;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.contenderapps.apc.R;
+import com.contenderapps.apc.routing.Navigator;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -28,8 +30,13 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 //    @BindView(R.id.activate_btn)
 //    Button mActivate;
 
+    protected Context mContext;
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     public static MapFragment newInstance() {
         MapFragment fragment = new MapFragment();
@@ -71,7 +78,7 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
         // Add a marker in Sydney and move the camera
         LatLng person1 = new LatLng(52.314239, 20.965203);
         LatLng person2 = new LatLng(52.315226, 20.965658);
-        mMap.addMarker(new MarkerOptions().position(person1).title("Adam S"));
+        mMap.addMarker(new MarkerOptions().position(person1).title("Mok Oh"));
         mMap.addMarker(new MarkerOptions().position(person2).title("Robert K"));
 
         LatLng center = new LatLng((person1.latitude + person2.latitude) / 2, (person1.longitude + person2.longitude) / 2);
@@ -81,7 +88,7 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-
+        Navigator.navigateToChat(mContext);
     }
 
 //    @Override

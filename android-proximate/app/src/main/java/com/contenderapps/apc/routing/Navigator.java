@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.contenderapps.apc.ui.authentication.AuthenticationActivity;
+import com.contenderapps.apc.ui.chat.ChatActivity;
 import com.contenderapps.apc.ui.create.CreateActivity;
 import com.contenderapps.apc.ui.deliverydetails.DeliveryActivity;
 import com.contenderapps.apc.ui.home.HomeActivity;
@@ -59,9 +60,8 @@ public class Navigator {
     }
 
 
-
-
-
-
-
+    public static void navigateToChat(Context context) {
+        Intent intent = ChatActivity.getStartIntent(context);
+        context.startActivity(intent);
+    }
 }
