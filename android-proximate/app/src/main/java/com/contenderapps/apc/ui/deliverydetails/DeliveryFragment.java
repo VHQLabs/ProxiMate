@@ -1,7 +1,6 @@
-package com.contenderapps.apc.ui.create;
+package com.contenderapps.apc.ui.deliverydetails;
 
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -10,22 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.contenderapps.apc.R;
-import com.contenderapps.apc.routing.Navigator;
 import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 
-public class CreateFragment extends BaseMvpFragment<CreateMvpView, CreatePresenter> implements CreateMvpView {
+public class DeliveryFragment extends BaseMvpFragment<DeliveryMvpView, DeliveryPresenter> implements DeliveryMvpView {
 
-    private static final String TAG = CreateFragment.class.getSimpleName();
-
-
+    private static final String TAG = DeliveryFragment.class.getSimpleName();
 
 
-    public static CreateFragment newInstance() {
-        CreateFragment fragment = new CreateFragment();
+    public static DeliveryFragment newInstance() {
+        DeliveryFragment fragment = new DeliveryFragment();
         return fragment;
     }
 
@@ -39,13 +34,13 @@ public class CreateFragment extends BaseMvpFragment<CreateMvpView, CreatePresent
     }
 
     @Override
-    protected CreateMvpView getThis() {
+    protected DeliveryMvpView getThis() {
         return this;
     }
 
     @Override
-    protected CreatePresenter instantiatePresenter() {
-        return new CreatePresenter();
+    protected DeliveryPresenter instantiatePresenter() {
+        return new DeliveryPresenter();
     }
 
 
@@ -54,7 +49,7 @@ public class CreateFragment extends BaseMvpFragment<CreateMvpView, CreatePresent
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_create_request, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_request_delivery, container, false);
         mUnbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -107,10 +102,6 @@ public class CreateFragment extends BaseMvpFragment<CreateMvpView, CreatePresent
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  ButterKnife
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    @OnClick(R.id.delivery_btn)
-    public void onDeliveryClick() {
-        Navigator.navigateToDeliveryDetails(mContext);
-    }
 
 
 

@@ -37,6 +37,9 @@
         <activity android:name=".ui.create.CreateActivity">
         </activity>
 
+        <activity android:name=".ui.deliverydetails.DeliveryActivity">
+        </activity>
+
 
 
         <!-- meta data -->

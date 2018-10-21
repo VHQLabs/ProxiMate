@@ -46,6 +46,15 @@ public class Navigator {
         context.startActivity(intent);
     }
 
+    public static void navigateToDeliveryDetails(Context context) {
+        Intent intent = CreateActivity.getStartIntent(context);
+        context.startActivity(intent);
+    }
+
+
+
+
+
 
 
 

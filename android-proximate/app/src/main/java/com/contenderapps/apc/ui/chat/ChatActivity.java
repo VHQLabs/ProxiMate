@@ -114,7 +114,7 @@ public class ChatActivity extends BaseToolbarActivity
 //        setToolbarTitle("Chat");
 //
 //        if (savedInstanceState == null) {
-//            replaceFragment(CreateFragment.newInstance());
+//            replaceFragment(DeliveryFragment.newInstance());
 //        }
 //    }
 }
