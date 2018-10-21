@@ -20,6 +20,8 @@
     <color name="blue">#0000ff</color>
 
 
+    <color name="gray_light">#e8e8e8</color>
+
 
     <color name="color_question_answered">#FAFCBE</color>
     <color name="color_question_answered_correctly">#41F547</color>

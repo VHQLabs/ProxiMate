@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainMenuInterface
         mFragmentUser = UserFragment.newInstance();
 
         if (savedInstanceState == null) {
-            replaceFragment(mFragmentChat);
+            replaceFragment(mFragmentRequests);
         }
     }
 

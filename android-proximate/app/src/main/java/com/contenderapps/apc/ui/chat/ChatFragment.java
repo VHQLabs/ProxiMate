@@ -1,4 +1,4 @@
-package com.contenderapps.apc.ui.main;
+package com.contenderapps.apc.ui.chat;
 
 
 import android.os.Bundle;
@@ -15,8 +15,6 @@ import com.contenderapps.apc.R;
 import com.contenderapps.apc.data.chat.Message;
 import com.contenderapps.apc.data.fixtures.MessagesFixtures;
 import com.contenderapps.apc.ui.base.fragments.BaseMvpFragment;
-import com.contenderapps.apc.ui.chat.ChatMvpView;
-import com.contenderapps.apc.ui.chat.ChatPresenter;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.messages.MessageInput;
@@ -75,7 +73,7 @@ public class ChatFragment extends BaseMvpFragment<ChatMvpView, ChatPresenter> im
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chat_pavel, container, false);
+        View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
         this.messagesList = (MessagesList) view.findViewById(R.id.messagesList);
         initAdapter();

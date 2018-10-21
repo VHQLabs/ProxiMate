@@ -2,6 +2,7 @@ package com.contenderapps.apc.injection.components;
 
 import com.contenderapps.apc.injection.scopes.PerPresenter;
 import com.contenderapps.apc.ui.authentication.AuthenticationPresenter;
+import com.contenderapps.apc.ui.chat.ChatPresenter;
 import com.contenderapps.apc.ui.home.HomePresenter;
 import com.contenderapps.apc.ui.splash.SplashPresenter;
 import com.contenderapps.apc.ui.main.MainPresenter;
@@ -26,5 +27,7 @@ public interface PresenterComponent {
     void inject(AuthenticationPresenter presenter);
 
     void inject(MainPresenter presenter);
+
+    void inject(ChatPresenter presenter);
 
 }
