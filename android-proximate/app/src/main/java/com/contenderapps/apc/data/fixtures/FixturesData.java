@@ -14,6 +14,7 @@ abstract class FixturesData {
     static ArrayList<String> avatars = new ArrayList<String>() {
         {
             add("http://i.imgur.com/pv1tBmT.png");
+            add("https://media.licdn.com/dms/image/C4E03AQFvEeakZjv8LQ/profile-displayphoto-shrink_800_800/0?e=1545868800&v=beta&t=QLjUajOP166nPKKS-ArXT9NNg9V7gaJl5YH7HIa91sE");
             add("http://i.imgur.com/R3Jm1CL.png");
             add("http://i.imgur.com/ROz4Jgh.png");
             add("http://i.imgur.com/Qn9UesZ.png");

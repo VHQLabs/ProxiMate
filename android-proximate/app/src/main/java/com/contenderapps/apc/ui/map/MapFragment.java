@@ -78,7 +78,7 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
         // Add a marker in Sydney and move the camera
         LatLng person1 = new LatLng(52.314239, 20.965203);
         LatLng person2 = new LatLng(52.315226, 20.965658);
-        mMap.addMarker(new MarkerOptions().position(person1).title("Adam S"));
+        mMap.addMarker(new MarkerOptions().position(person1).title("Mok Oh"));
         mMap.addMarker(new MarkerOptions().position(person2).title("Robert K"));
 
         LatLng center = new LatLng((person1.latitude + person2.latitude) / 2, (person1.longitude + person2.longitude) / 2);
