@@ -1,6 +1,7 @@
-package com.contenderapps.apc.ui.main;
+package com.contenderapps.apc.ui.create;
 
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -16,16 +17,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class RequestsFragment extends BaseMvpFragment<MainMvpView, MainPresenter> implements MainMvpView {
+public class CreateFragment extends BaseMvpFragment<CreateMvpView, CreatePresenter> implements CreateMvpView {
 
-    private static final String TAG = RequestsFragment.class.getSimpleName();
-
-    private MainMenuInterface mMainInterface;
+    private static final String TAG = CreateFragment.class.getSimpleName();
 
 
-
-    public static RequestsFragment newInstance() {
-        RequestsFragment fragment = new RequestsFragment();
+    public static CreateFragment newInstance() {
+        CreateFragment fragment = new CreateFragment();
         return fragment;
     }
 
@@ -34,17 +32,18 @@ public class RequestsFragment extends BaseMvpFragment<MainMvpView, MainPresenter
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mMainInterface = (MainMenuInterface) this.getActivity();
+
+
     }
 
     @Override
-    protected MainMvpView getThis() {
+    protected CreateMvpView getThis() {
         return this;
     }
 
     @Override
-    protected MainPresenter instantiatePresenter() {
-        return new MainPresenter();
+    protected CreatePresenter instantiatePresenter() {
+        return new CreatePresenter();
     }
 
 
@@ -53,7 +52,7 @@ public class RequestsFragment extends BaseMvpFragment<MainMvpView, MainPresenter
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_requests, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_request, container, false);
         mUnbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -90,6 +89,12 @@ public class RequestsFragment extends BaseMvpFragment<MainMvpView, MainPresenter
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+//        mPresenter.loadData();
+    }
+
 
 
 
@@ -100,10 +105,8 @@ public class RequestsFragment extends BaseMvpFragment<MainMvpView, MainPresenter
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                  ButterKnife
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    @OnClick(R.id.add_btn)
-    public void onAddClicked() {
-        Navigator.navigateToCreateRequest(mContext);
-    }
+
+
 
 
 

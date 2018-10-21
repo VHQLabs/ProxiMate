@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.contenderapps.apc.ui.authentication.AuthenticationActivity;
+import com.contenderapps.apc.ui.create.CreateActivity;
 import com.contenderapps.apc.ui.home.HomeActivity;
 import com.contenderapps.apc.ui.main.MainActivity;
 
@@ -40,25 +41,10 @@ public class Navigator {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void navigateToCreateRequest(Context context) {
+        Intent intent = CreateActivity.getStartIntent(context);
+        context.startActivity(intent);
+    }
 
 
 
