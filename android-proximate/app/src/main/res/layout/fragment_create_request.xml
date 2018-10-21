@@ -48,7 +48,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="80dp"
                         android:padding="@dimen/dimen_margin_double"
                         android:src="@drawable/delivery"
                         android:layout_weight="3"
@@ -84,7 +84,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="80dp"
                         android:padding="@dimen/dimen_margin_double"
                         android:src="@drawable/dog"
                         android:layout_weight="3"
@@ -120,7 +120,7 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="80dp"
                         android:padding="@dimen/dimen_margin_double"
                         android:src="@drawable/baby"
                         android:layout_weight="3"
@@ -150,7 +150,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/dimen_margin_normal"
             android:weightSum="3"
             >
 
