@@ -29,7 +29,6 @@ android:layout_height="match_parent">
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_light"
             >
 
             <ImageView
@@ -37,6 +36,7 @@ android:layout_height="match_parent">
                 android:layout_height="@dimen/dimen_ic_size"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_request"
+                android:clickable="false"
                 />
 
         </RelativeLayout>
@@ -53,6 +53,7 @@ android:layout_height="match_parent">
                 android:layout_height="@dimen/dimen_ic_size"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_neighbourhood"
+                android:clickable="false"
                 />
 
         </RelativeLayout>
@@ -69,6 +70,7 @@ android:layout_height="match_parent">
                 android:layout_height="@dimen/dimen_ic_size"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_chat"
+                android:clickable="false"
                 />
 
         </RelativeLayout>
@@ -85,6 +87,7 @@ android:layout_height="match_parent">
                 android:layout_height="@dimen/dimen_ic_size"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_account"
+                android:clickable="false"
                 />
 
         </RelativeLayout>

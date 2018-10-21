@@ -50,7 +50,7 @@ public class UserFragment extends BaseMvpFragment<MainMvpView, MainPresenter> im
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
         mUnbinder = ButterKnife.bind(this, view);
         return view;
     }
