@@ -1,10 +1,12 @@
 package com.contenderapps.apc.ui.map;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.contenderapps.apc.R;
+import com.contenderapps.apc.routing.Navigator;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -28,8 +30,13 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 //    @BindView(R.id.activate_btn)
 //    Button mActivate;
 
+    protected Context mContext;
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     public static MapFragment newInstance() {
         MapFragment fragment = new MapFragment();
@@ -81,7 +88,7 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-
+        Navigator.navigateToChat(mContext);
     }
 
 //    @Override

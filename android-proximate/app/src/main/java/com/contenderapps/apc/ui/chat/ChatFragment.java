@@ -156,7 +156,7 @@ public class ChatFragment extends BaseMvpFragment<ChatMvpView, ChatPresenter> im
                 messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Received your package"), true);
 
             }
-        }, 10000);
+        }, 30000);
 
         return true;
     }
