@@ -123,9 +123,15 @@ public class ChatFragment extends BaseMvpFragment<ChatMvpView, ChatPresenter> im
 //        mPresenter.loadData();
     }
 
+    private Boolean started = false;
+
     @Override
     public void onStart() {
         super.onStart();
+
+        if(started)
+            return;
+
         messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(0), "I want you to receive for me \"Striped Hudson Jeans Shorts\" from Mercari. " +
                 "Expected on Monday, October 22"), true);
         Message message = new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(0), "");
@@ -133,6 +139,7 @@ public class ChatFragment extends BaseMvpFragment<ChatMvpView, ChatPresenter> im
         messagesAdapter.addToStart(message, true);
         messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Ready to receive it for you. My address Nagodziców 18-54."), true);
 
+        started = true;
 //            messagesAdapter.addToStart(MessagesFixtures.getTextMessage(), true);
     }
 
@@ -153,7 +160,7 @@ public class ChatFragment extends BaseMvpFragment<ChatMvpView, ChatPresenter> im
         new Handler().postDelayed(new Runnable() { //imitation of internet connection
             @Override
             public void run() {
-                messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Received your package"), true);
+                messagesAdapter.addToStart(new Message(MessagesFixtures.getRandomId(), MessagesFixtures.getUser(1), "Received your package. Come and get it, I'm at home all day"), true);
 
             }
         }, 30000);
