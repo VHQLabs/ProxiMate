@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -127,28 +128,36 @@
                     </RelativeLayout>
 
                 </LinearLayout>
-
-                <ScrollView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    tools:listitem="@layout/view_drawing_item"
+                    />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/color_background_request_card"
-                        android:paddingLeft="@dimen/dimen_margin_double"
-                        android:paddingRight="@dimen/dimen_margin_double"
-                        android:paddingTop="@dimen/dimen_margin_normal"
-                        android:paddingBottom="@dimen/dimen_margin_normal"
-                        android:layout_marginBottom="@dimen/dimen_margin_normal"
-                        android:text="Receive a package on october 24th"
-                        style="@style/CustomStyle.Title"
-                        />
+                <!--<ScrollView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@color/color_background_request_card"-->
+                        <!--android:paddingLeft="@dimen/dimen_margin_double"-->
+                        <!--android:paddingRight="@dimen/dimen_margin_double"-->
+                        <!--android:paddingTop="@dimen/dimen_margin_normal"-->
+                        <!--android:paddingBottom="@dimen/dimen_margin_normal"-->
+                        <!--android:layout_marginBottom="@dimen/dimen_margin_normal"-->
+                        <!--android:text="Receive a package on october 24th"-->
+                        <!--style="@style/CustomStyle.Title"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--/>-->
 
 
 
 
-                </ScrollView>
+                <!--</ScrollView>-->
 
             </LinearLayout>
 

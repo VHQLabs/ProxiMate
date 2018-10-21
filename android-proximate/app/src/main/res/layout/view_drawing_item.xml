@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="3dp"
+    android:layout_margin="4dp"
+    android:background="#fa4718"
+    android:padding="8dp"
+    >
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="some text"
+        android:padding="8dp"
+        />
+
+
+</android.support.v7.widget.CardView>
+
+
+
+
+
+
+
